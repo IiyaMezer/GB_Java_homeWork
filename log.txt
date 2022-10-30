@@ -1,0 +1,2 @@
+окт. 06, 2022 9:58:42 PM HW2.HW2_Task1 stringArrayToFile
+WARNING: Cannot read the array length because "<local6>" is null

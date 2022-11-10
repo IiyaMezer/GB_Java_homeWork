@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class FamilyTree {
     ArrayList<String> res = new ArrayList<String>();
     ArrayList<Node> tree;
-    ArrayList<Person> person;
+
 
     public FamilyTree() {
         ArrayList<Node> tree = new ArrayList<Node>();

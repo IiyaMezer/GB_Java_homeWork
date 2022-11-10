@@ -26,6 +26,8 @@ public class FamilyTree {
         }
         return res;
     }
+    ///TODO переделать функцию на свич кейс, каждый кейс - тип отношений в семье. На каждый тип свой метод.
+
     public ArrayList<String> getRelatedPersons(Person person, Relations relation){
         for (Node node: this.tree) {
             if ( node.getPerson().getName() == person.getName()
@@ -35,7 +37,7 @@ public class FamilyTree {
         }
         return res;
     }
-///TODO
+///TODO на каждый тип отношений доделать метод, для выявления этих отношений.
     private ArrayList<String> getSibling(){
         return null;
     }
@@ -44,6 +46,12 @@ public class FamilyTree {
     }
 
     private ArrayList<String> getGrandParent(){
+        return null;
+    }
+    private ArrayList<String> getСhild(){
+        return null;
+    }
+    private ArrayList<String> getParent(){
         return null;
     }
 }

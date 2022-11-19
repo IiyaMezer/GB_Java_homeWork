@@ -2,7 +2,7 @@ package OOP_HW1;
 
 import java.util.ArrayList;
 
-public class FamilyTree {
+public class FamilyTree implements ResearchPeople{
     ArrayList<String> res = new ArrayList<String>();
     ArrayList<Node> tree;
 

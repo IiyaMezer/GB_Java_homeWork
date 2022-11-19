@@ -2,14 +2,13 @@ package OOP_HW1;
 
 import java.util.ArrayList;
 
-public class FamilyTree implements ResearchPeople{
-    ArrayList<String> res = new ArrayList<String>();
+public class FamilyTree<T> implements ResearchPeople{
+
     ArrayList<Node> tree;
 
 
     public FamilyTree() {
-        ArrayList<Node> tree = new ArrayList<Node>();
-        this.tree = tree;
+        this.tree = new ArrayList<Node>();
     }
 
 
@@ -18,24 +17,28 @@ public class FamilyTree implements ResearchPeople{
         this.tree.add(new Node(child, parent, Relations.Child));
     }
 
-    public ArrayList<String> searchByAge(int age){
+    public FamilyTree<T>  searchByAge(int age){
         for (Node node: this.tree) {
             if (node.getPerson().getAge() < age){
-                res.add(node.getPerson().getName());
+                this.add((T) node.getPerson().getName());
             }
         }
-        return res;
+        return this;
     }
     ///TODO переделать функцию на свич кейс, каждый кейс - тип отношений в семье. На каждый тип свой метод.
 
-    public ArrayList<String> getRelatedPersons(Person person, Relations relation){
+    public FamilyTree<T> getRelatedPersons(Person person, Relations relation){
         for (Node node: this.tree) {
             if ( node.getPerson().getName() == person.getName()
                  && node.getRelation() == relation){
-                res.add(node.getParent().getName());
+                this.add((T) node.getParent().getName());
             }
         }
-        return res;
+        return this;
+    }
+
+    public void add (T item){
+        this.add(item);
     }
 ///TODO на каждый тип отношений доделать метод, для выявления этих отношений.
     private ArrayList<String> getSibling(){

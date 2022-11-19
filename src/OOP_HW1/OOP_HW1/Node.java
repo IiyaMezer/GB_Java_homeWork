@@ -1,5 +1,5 @@
 package OOP_HW1;
-//Человек как элемент семеного древа, наследуется от Person имеет поле с родителем.
+
 public class Node {
     private Person person;
     private Person parent;

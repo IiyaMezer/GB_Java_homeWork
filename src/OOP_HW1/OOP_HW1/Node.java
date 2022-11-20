@@ -6,7 +6,7 @@ public class Node<T extends Person> {
     private Relations relation;
 
     public Node(T person, T parent, Relations relation) {
-        this.person = (T) person;
+        this.person = person;
         this.parent = parent;
         this.relation = relation;
     }

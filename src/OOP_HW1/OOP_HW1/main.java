@@ -14,8 +14,8 @@ public class main {
         tree.addNode(vanya, victor);
         tree.addNode(ira, masha);
 
-        System.out.println(tree.getRelatedPersons(ilya,
-                Relations.Parent));
+        System.out.println(tree.getRelatedPersons(masha,
+                Relations.Child));
 
         System.out.println("Поиск людей по возрасту: " + tree.searchByAge(30));
 

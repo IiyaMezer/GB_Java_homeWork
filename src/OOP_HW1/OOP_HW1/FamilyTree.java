@@ -7,6 +7,7 @@ public class FamilyTree<T extends Person> implements ResearchPeople{
     ArrayList<Node> tree;
 
 
+
     public FamilyTree() {
         this.tree = new ArrayList<Node>();
     }
@@ -17,24 +18,26 @@ public class FamilyTree<T extends Person> implements ResearchPeople{
         this.tree.add(new Node(child, parent, Relations.Child));
     }
 
-    public FamilyTree<T>  searchByAge(int age){
+    public ArrayList<String>  searchByAge(int age){
+        ArrayList<String> res = new ArrayList<>();
         for (Node node: this.tree) {
             if (node.getPerson().getAge() < age){
-                this.add((T) node.getPerson());
+                res.add(node.getPerson().getName());
             }
         }
-        return this;
+        return res;
     }
     ///TODO переделать функцию на свич кейс, каждый кейс - тип отношений в семье. На каждый тип свой метод.
 
-    public FamilyTree<T> getRelatedPersons(T person, Relations relation){
+    public ArrayList<String> getRelatedPersons(T person, Relations relation){
+        ArrayList<String> res = new ArrayList<>();
         for (Node node: this.tree) {
             if (node.getPerson().getName().equals(person.getName())
                  && node.getRelation() == relation){
-                this.add((T) node.getParent());
+                res.add( node.getParent().getName());
             }
         }
-        return this;
+        return res;
     }
 
     public void add (T item){

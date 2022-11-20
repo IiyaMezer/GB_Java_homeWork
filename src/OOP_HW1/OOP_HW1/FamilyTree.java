@@ -2,7 +2,7 @@ package OOP_HW1;
 
 import java.util.ArrayList;
 
-public class FamilyTree<T> implements ResearchPeople{
+public class FamilyTree<T extends Person> implements ResearchPeople{
 
     ArrayList<Node> tree;
 
@@ -12,7 +12,7 @@ public class FamilyTree<T> implements ResearchPeople{
     }
 
 
-    public void addNode(Person parent, Person child) {
+    public void addNode(T parent, T child) {
         this.tree.add(new Node(parent, child, Relations.Parent));
         this.tree.add(new Node(child, parent, Relations.Child));
     }
@@ -20,18 +20,18 @@ public class FamilyTree<T> implements ResearchPeople{
     public FamilyTree<T>  searchByAge(int age){
         for (Node node: this.tree) {
             if (node.getPerson().getAge() < age){
-                this.add((T) node.getPerson().getName());
+                this.add((T) node.getPerson());
             }
         }
         return this;
     }
     ///TODO переделать функцию на свич кейс, каждый кейс - тип отношений в семье. На каждый тип свой метод.
 
-    public FamilyTree<T> getRelatedPersons(Person person, Relations relation){
+    public FamilyTree<T> getRelatedPersons(T person, Relations relation){
         for (Node node: this.tree) {
             if (node.getPerson().getName().equals(person.getName())
                  && node.getRelation() == relation){
-                this.add((T) node.getParent().getName());
+                this.add((T) node.getParent());
             }
         }
         return this;

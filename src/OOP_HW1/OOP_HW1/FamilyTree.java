@@ -29,7 +29,7 @@ public class FamilyTree<T> implements ResearchPeople{
 
     public FamilyTree<T> getRelatedPersons(Person person, Relations relation){
         for (Node node: this.tree) {
-            if ( node.getPerson().getName() == person.getName()
+            if (node.getPerson().getName().equals(person.getName())
                  && node.getRelation() == relation){
                 this.add((T) node.getParent().getName());
             }

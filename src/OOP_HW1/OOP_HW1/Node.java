@@ -1,29 +1,29 @@
 package OOP_HW1;
 
-public class Node {
-    private Person person;
-    private Person parent;
+public class Node<T extends Person> {
+    private T person;
+    private T parent;
     private Relations relation;
 
-    public Node(Person person, Person parent, Relations relation) {
-        this.person = person;
+    public Node(T person, T parent, Relations relation) {
+        this.person = (T) person;
         this.parent = parent;
         this.relation = relation;
     }
 
-    public Person getPerson() {
+    public T getPerson() {
         return person;
     }
 
-    public void setPerson(Person person) {
+    public void setPerson(T person) {
         this.person = person;
     }
 
-    public Person getParent() {
+    public T getParent() {
         return parent;
     }
 
-    public void setParent(Person parent) {
+    public void setParent(T parent) {
         this.parent = parent;
     }
 

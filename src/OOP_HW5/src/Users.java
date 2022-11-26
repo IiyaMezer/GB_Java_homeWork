@@ -15,7 +15,10 @@ public class Users implements Model, Iterable, Iterator<User> {
     }
 
     private void printUserList(){
-        System.out.println(usersList);
+        for (User i : usersList) {
+            System.out.println(i);
+        }
+
     }
     private void addUser(){
         this.usersList.add(new User( data[1],data[2]));
